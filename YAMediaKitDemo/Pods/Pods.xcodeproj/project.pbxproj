@@ -1,0 +1,742 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 48;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		03C1A221AD37691786820C9EBE9E44F3 /* YAComponentProtocol.h in Headers */ = {isa = PBXBuildFile; fileRef = D5ED97B1CD7F18B9A1E09A51778A8933 /* YAComponentProtocol.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		096701D5CCF79AB6D8EEA53CE521AAC0 /* KVOController-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F8449943607945BFC9EA353680FC948 /* KVOController-dummy.m */; };
+		11425D0860F441ECDC37B4EDD631F3DA /* MMapFile.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6C25E8B68DAEF013CBD5CDFEB402FA7E /* MMapFile.cpp */; };
+		1701485515E2030041E0274EDDFC31DF /* YAModel.h in Headers */ = {isa = PBXBuildFile; fileRef = 04C099C6C7601216A65409E3AFA1050C /* YAModel.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		2F81C9F94530766E21EFE7F321AF8DFC /* YAVCPresenterProtocol.h in Headers */ = {isa = PBXBuildFile; fileRef = 46E798CCEB59BAFA7635F8D9ED6CED20 /* YAVCPresenterProtocol.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		327ED7994B2E2BC2994F70768F209851 /* NSObject+YAComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = F4F87F533DC40D816B28B4AF65E995FF /* NSObject+YAComponent.m */; };
+		3AC2BA4D09A1C7CFABF456E65E149065 /* YAKit-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F89F6FB1BA2814C63B972D6E2BDC6EA /* YAKit-dummy.m */; };
+		3B6D94894BA70F194950ECA4086BB51A /* NSObject+FBKVOController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F1367733E20A40904C84AE1126C350E /* NSObject+FBKVOController.m */; };
+		3B9471762BD00A545A4979DE89B02943 /* YAKit.h in Headers */ = {isa = PBXBuildFile; fileRef = D10AC557253670E629A8C6227C5AD12F /* YAKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		3E9CC96725B149149ADBEC2C0EBB1520 /* UIView+YAPresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 21AD2E2EAB1FA196C90667735F62BE91 /* UIView+YAPresenter.m */; };
+		4AE34BEC1A7097081710FA48882658AC /* UIViewController+YAPresenter.h in Headers */ = {isa = PBXBuildFile; fileRef = 0E9B82DC341EDAA4C36FC1D090F91038 /* UIViewController+YAPresenter.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		4F2855294B6D48AF944E44075B0724B4 /* YAComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = 92E7AD4F66674493B6AF4588B8263832 /* YAComponent.m */; };
+		541A1FF2BE6FDED04FC8174BDA96F005 /* NSObject+FBKVOController.h in Headers */ = {isa = PBXBuildFile; fileRef = BA121180813EF158A11F54D569F8E3B9 /* NSObject+FBKVOController.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		5484BDC3A4E3BB891B3C4C17047966ED /* UIViewController+YAPresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F58072FD27D7FC9A6D901207E7DF366 /* UIViewController+YAPresenter.m */; };
+		607E76E56AF6FE0B6D90F0B2D6CFC3A5 /* NSObject+YAObserve.m in Sources */ = {isa = PBXBuildFile; fileRef = BE08A964CB53F5FCAB14AB2D69791E79 /* NSObject+YAObserve.m */; };
+		621D2C1BA7CB45FA9B66EF637CF7ADE5 /* FBKVOController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EDA47650C2F88EEBD83271527ADA5E5 /* FBKVOController.m */; };
+		7B059A1122894F6F08A82098AB655D84 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6604A7D69453B4569E4E4827FB9155A9 /* Foundation.framework */; };
+		7EB862BDA484894F696C0BC329C5005C /* NSObject+YAComponent.h in Headers */ = {isa = PBXBuildFile; fileRef = AE0D49EF9F60480AAA43D446D19FA66C /* NSObject+YAComponent.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		8703ED868E9614D950769DCC5AEB91E1 /* YAComponent.h in Headers */ = {isa = PBXBuildFile; fileRef = 887628341EEDEE62DE93B42E8DBD1CD4 /* YAComponent.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		8A2C5CF2D28776EBB3B9EFF562CCCFC2 /* KVOController.h in Headers */ = {isa = PBXBuildFile; fileRef = E13710670E73FEB0A215A35639C2FC4F /* KVOController.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		B3A66CFE914CBCF774060C0BDA196439 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6604A7D69453B4569E4E4827FB9155A9 /* Foundation.framework */; };
+		B49577BF84BCD9245D3987E2BFB0201D /* YAViewPresenterProtocol.h in Headers */ = {isa = PBXBuildFile; fileRef = 160BBF9BE7584EB343F48A7C0E0A2CE0 /* YAViewPresenterProtocol.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		BA873B153F5FD7722309FAAE7AAC2FDB /* UIView+YAPresenter.h in Headers */ = {isa = PBXBuildFile; fileRef = 5ED569F2455A157C285734859AEDB8A7 /* UIView+YAPresenter.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		BE5D4FCD1FBBAB91F23DAB4CBD529D3F /* YAMMapFile.mm in Sources */ = {isa = PBXBuildFile; fileRef = C4874FADF871BE4ADB5EA13D9A4CB4AE /* YAMMapFile.mm */; };
+		C1ACDD5719EE86E5BFCF3FC46C98D5FC /* YAModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F31A3F1D127D080DB58D2F54474FE30 /* YAModel.m */; };
+		C2EF97D9D6EA360813CBBEC177989542 /* MMapFile.h in Headers */ = {isa = PBXBuildFile; fileRef = 5C58609D340DBD99FF4ECDA27436F597 /* MMapFile.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		C2FFC898C428ED9517453F6972038177 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6604A7D69453B4569E4E4827FB9155A9 /* Foundation.framework */; };
+		C6745A448A1BF587E99ED40A74650DE1 /* NSObject+YASwizzle.h in Headers */ = {isa = PBXBuildFile; fileRef = BAB54F149A91E16DA37DB0B41FD581A0 /* NSObject+YASwizzle.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		CA8FB1F2624313A12DE4B45F60877CB4 /* YAMMapFile.h in Headers */ = {isa = PBXBuildFile; fileRef = 2B1D7CACFEEEA5BE048656CABDF84A46 /* YAMMapFile.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D8851FE966C13C2A1203047E2E6E7ABD /* Pods-YAMediaKitDemo-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D779C3F1DF328D4265F964559FCA8DF /* Pods-YAMediaKitDemo-dummy.m */; };
+		E53B19C3B8890FA3EE09BC7851A6A510 /* NSObject+YAObserve.h in Headers */ = {isa = PBXBuildFile; fileRef = A1CEFE0225BD3309A2D0B4895922914B /* NSObject+YAObserve.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		EBD8BD6A4FFC9E7A30E85603FF0118D6 /* FBKVOController.h in Headers */ = {isa = PBXBuildFile; fileRef = 1031D2FB445D6AD1B85E60FBE96D3BFB /* FBKVOController.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		F7465E932863975AC23126A3E36FCFC0 /* NSObject+YASwizzle.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EF2DBC07F519293A8272DCE6A8E1A00 /* NSObject+YASwizzle.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		5A2B2BC80107A13137A4FAB0662C9916 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 20DC3C73467E7BF429BB421E6C927F2F;
+			remoteInfo = YAKit;
+		};
+		835A9A195C9E13A92903EAB7BD021390 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 9C2D3327264C1DB785EADD89D3242323;
+			remoteInfo = KVOController;
+		};
+		EC132C2324AEFF4AA52032D0BF46D41E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 9C2D3327264C1DB785EADD89D3242323;
+			remoteInfo = KVOController;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		04C099C6C7601216A65409E3AFA1050C /* YAModel.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = YAModel.h; path = YAKit/Foundation/Serialization/YAModel.h; sourceTree = "<group>"; };
+		0E9B82DC341EDAA4C36FC1D090F91038 /* UIViewController+YAPresenter.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIViewController+YAPresenter.h"; path = "YAKit/UIKit/Presenter/UIViewController+YAPresenter.h"; sourceTree = "<group>"; };
+		1031D2FB445D6AD1B85E60FBE96D3BFB /* FBKVOController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = FBKVOController.h; path = FBKVOController/FBKVOController.h; sourceTree = "<group>"; };
+		1361EECA96401B26F4A4C8B4613B5F23 /* Pods-YAMediaKitDemo-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-YAMediaKitDemo-acknowledgements.markdown"; sourceTree = "<group>"; };
+		160BBF9BE7584EB343F48A7C0E0A2CE0 /* YAViewPresenterProtocol.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = YAViewPresenterProtocol.h; path = YAKit/UIKit/Presenter/YAViewPresenterProtocol.h; sourceTree = "<group>"; };
+		1948106D36FD9B150C2E7ED5EC1CF366 /* libKVOController.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = libKVOController.a; path = libKVOController.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		1F89F6FB1BA2814C63B972D6E2BDC6EA /* YAKit-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "YAKit-dummy.m"; sourceTree = "<group>"; };
+		21AD2E2EAB1FA196C90667735F62BE91 /* UIView+YAPresenter.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIView+YAPresenter.m"; path = "YAKit/UIKit/Presenter/UIView+YAPresenter.m"; sourceTree = "<group>"; };
+		2B1D7CACFEEEA5BE048656CABDF84A46 /* YAMMapFile.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = YAMMapFile.h; path = YAKit/Foundation/MMap/YAMMapFile.h; sourceTree = "<group>"; };
+		2F1367733E20A40904C84AE1126C350E /* NSObject+FBKVOController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSObject+FBKVOController.m"; path = "FBKVOController/NSObject+FBKVOController.m"; sourceTree = "<group>"; };
+		3B7CC331BED5E31E21283BA39162C9A0 /* Pods-YAMediaKitDemo-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-YAMediaKitDemo-acknowledgements.plist"; sourceTree = "<group>"; };
+		3F31A3F1D127D080DB58D2F54474FE30 /* YAModel.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = YAModel.m; path = YAKit/Foundation/Serialization/YAModel.m; sourceTree = "<group>"; };
+		46E798CCEB59BAFA7635F8D9ED6CED20 /* YAVCPresenterProtocol.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = YAVCPresenterProtocol.h; path = YAKit/UIKit/Presenter/YAVCPresenterProtocol.h; sourceTree = "<group>"; };
+		4D779C3F1DF328D4265F964559FCA8DF /* Pods-YAMediaKitDemo-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-YAMediaKitDemo-dummy.m"; sourceTree = "<group>"; };
+		5C58609D340DBD99FF4ECDA27436F597 /* MMapFile.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MMapFile.h; path = YAKit/Foundation/MMap/MMapFile.h; sourceTree = "<group>"; };
+		5ED569F2455A157C285734859AEDB8A7 /* UIView+YAPresenter.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIView+YAPresenter.h"; path = "YAKit/UIKit/Presenter/UIView+YAPresenter.h"; sourceTree = "<group>"; };
+		5F36F50421213BB63C7C67E82F9024F4 /* Pods-YAMediaKitDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-YAMediaKitDemo.debug.xcconfig"; sourceTree = "<group>"; };
+		5F58072FD27D7FC9A6D901207E7DF366 /* UIViewController+YAPresenter.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIViewController+YAPresenter.m"; path = "YAKit/UIKit/Presenter/UIViewController+YAPresenter.m"; sourceTree = "<group>"; };
+		6604A7D69453B4569E4E4827FB9155A9 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.3.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		6C25E8B68DAEF013CBD5CDFEB402FA7E /* MMapFile.cpp */ = {isa = PBXFileReference; includeInIndex = 1; name = MMapFile.cpp; path = YAKit/Foundation/MMap/MMapFile.cpp; sourceTree = "<group>"; };
+		6F8449943607945BFC9EA353680FC948 /* KVOController-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "KVOController-dummy.m"; sourceTree = "<group>"; };
+		7EDA47650C2F88EEBD83271527ADA5E5 /* FBKVOController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = FBKVOController.m; path = FBKVOController/FBKVOController.m; sourceTree = "<group>"; };
+		887628341EEDEE62DE93B42E8DBD1CD4 /* YAComponent.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = YAComponent.h; path = YAKit/Foundation/Architecture/YAComponent.h; sourceTree = "<group>"; };
+		8EF2DBC07F519293A8272DCE6A8E1A00 /* NSObject+YASwizzle.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSObject+YASwizzle.m"; path = "YAKit/Foundation/Swizzle/NSObject+YASwizzle.m"; sourceTree = "<group>"; };
+		92E7AD4F66674493B6AF4588B8263832 /* YAComponent.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = YAComponent.m; path = YAKit/Foundation/Architecture/YAComponent.m; sourceTree = "<group>"; };
+		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		9B6740D89AA13CB350979FBA3753B8B2 /* KVOController-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "KVOController-prefix.pch"; sourceTree = "<group>"; };
+		A1CEFE0225BD3309A2D0B4895922914B /* NSObject+YAObserve.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSObject+YAObserve.h"; path = "YAKit/Foundation/Observe/NSObject+YAObserve.h"; sourceTree = "<group>"; };
+		AE0D49EF9F60480AAA43D446D19FA66C /* NSObject+YAComponent.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSObject+YAComponent.h"; path = "YAKit/Foundation/Architecture/NSObject+YAComponent.h"; sourceTree = "<group>"; };
+		AF15B1A7F1D2EBCCC24565B34F4CBBED /* libPods-YAMediaKitDemo.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = "libPods-YAMediaKitDemo.a"; path = "libPods-YAMediaKitDemo.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		B750E0D45873189F7CC6704E2D53E301 /* YAKit.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = YAKit.xcconfig; sourceTree = "<group>"; };
+		BA121180813EF158A11F54D569F8E3B9 /* NSObject+FBKVOController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSObject+FBKVOController.h"; path = "FBKVOController/NSObject+FBKVOController.h"; sourceTree = "<group>"; };
+		BAB54F149A91E16DA37DB0B41FD581A0 /* NSObject+YASwizzle.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSObject+YASwizzle.h"; path = "YAKit/Foundation/Swizzle/NSObject+YASwizzle.h"; sourceTree = "<group>"; };
+		BE08A964CB53F5FCAB14AB2D69791E79 /* NSObject+YAObserve.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSObject+YAObserve.m"; path = "YAKit/Foundation/Observe/NSObject+YAObserve.m"; sourceTree = "<group>"; };
+		C4874FADF871BE4ADB5EA13D9A4CB4AE /* YAMMapFile.mm */ = {isa = PBXFileReference; includeInIndex = 1; name = YAMMapFile.mm; path = YAKit/Foundation/MMap/YAMMapFile.mm; sourceTree = "<group>"; };
+		D10AC557253670E629A8C6227C5AD12F /* YAKit.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = YAKit.h; path = YAKit/YAKit.h; sourceTree = "<group>"; };
+		D2ECF60CE59CF4F82DA752ACAB6540B2 /* Pods-YAMediaKitDemo-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-YAMediaKitDemo-resources.sh"; sourceTree = "<group>"; };
+		D5ED97B1CD7F18B9A1E09A51778A8933 /* YAComponentProtocol.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = YAComponentProtocol.h; path = YAKit/Foundation/Architecture/YAComponentProtocol.h; sourceTree = "<group>"; };
+		DD0AEFC39871B75471AEB70131920558 /* libYAKit.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = libYAKit.a; path = libYAKit.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		E13710670E73FEB0A215A35639C2FC4F /* KVOController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = KVOController.h; path = FBKVOController/KVOController.h; sourceTree = "<group>"; };
+		E272778A0BD4EB1532DA1104194F7615 /* Pods-YAMediaKitDemo-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-YAMediaKitDemo-frameworks.sh"; sourceTree = "<group>"; };
+		E49A00E70FA833209691394EDD59E803 /* YAKit-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "YAKit-prefix.pch"; sourceTree = "<group>"; };
+		E6B456D420D6EE8AFC16232F0B2FDD63 /* Pods-YAMediaKitDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-YAMediaKitDemo.release.xcconfig"; sourceTree = "<group>"; };
+		F4F87F533DC40D816B28B4AF65E995FF /* NSObject+YAComponent.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSObject+YAComponent.m"; path = "YAKit/Foundation/Architecture/NSObject+YAComponent.m"; sourceTree = "<group>"; };
+		FE4E11385E5EBEF550E12AEF83A5EA94 /* KVOController.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = KVOController.xcconfig; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		1187AC59FF4A37B9334B5D2A4C96BAEB /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B3A66CFE914CBCF774060C0BDA196439 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1FA47F62FE6467DB961320D776ED10E1 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C2FFC898C428ED9517453F6972038177 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		642FF7B0DEE20459794DEBE1867405EB /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7B059A1122894F6F08A82098AB655D84 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		024DC8935263A9B55BFA2A7CDDA5EFB6 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				FE4E11385E5EBEF550E12AEF83A5EA94 /* KVOController.xcconfig */,
+				6F8449943607945BFC9EA353680FC948 /* KVOController-dummy.m */,
+				9B6740D89AA13CB350979FBA3753B8B2 /* KVOController-prefix.pch */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/KVOController";
+			sourceTree = "<group>";
+		};
+		168595888C011D49A1F4ECE767F00504 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				E08522B57381017CBAB5331244D7AB13 /* KVOController */,
+				98A71F701EBD16716EEAA411E1DAA6AE /* YAKit */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		37B9D470A8A69979094C055BE45D5E38 /* Pods-YAMediaKitDemo */ = {
+			isa = PBXGroup;
+			children = (
+				1361EECA96401B26F4A4C8B4613B5F23 /* Pods-YAMediaKitDemo-acknowledgements.markdown */,
+				3B7CC331BED5E31E21283BA39162C9A0 /* Pods-YAMediaKitDemo-acknowledgements.plist */,
+				4D779C3F1DF328D4265F964559FCA8DF /* Pods-YAMediaKitDemo-dummy.m */,
+				E272778A0BD4EB1532DA1104194F7615 /* Pods-YAMediaKitDemo-frameworks.sh */,
+				D2ECF60CE59CF4F82DA752ACAB6540B2 /* Pods-YAMediaKitDemo-resources.sh */,
+				5F36F50421213BB63C7C67E82F9024F4 /* Pods-YAMediaKitDemo.debug.xcconfig */,
+				E6B456D420D6EE8AFC16232F0B2FDD63 /* Pods-YAMediaKitDemo.release.xcconfig */,
+			);
+			name = "Pods-YAMediaKitDemo";
+			path = "Target Support Files/Pods-YAMediaKitDemo";
+			sourceTree = "<group>";
+		};
+		3A7DC9AFEFF26762E8727E201D6E1CC9 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				B750E0D45873189F7CC6704E2D53E301 /* YAKit.xcconfig */,
+				1F89F6FB1BA2814C63B972D6E2BDC6EA /* YAKit-dummy.m */,
+				E49A00E70FA833209691394EDD59E803 /* YAKit-prefix.pch */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/YAKit";
+			sourceTree = "<group>";
+		};
+		7DB346D0F39D3F0E887471402A8071AB = {
+			isa = PBXGroup;
+			children = (
+				93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */,
+				BC3CA7F9E30CC8F7E2DD044DD34432FC /* Frameworks */,
+				168595888C011D49A1F4ECE767F00504 /* Pods */,
+				99CCB7D2D7F8B238C726A519CB8F2CDA /* Products */,
+				98D27F4BEFA3B678BFC74343FB6C5C5B /* Targets Support Files */,
+			);
+			sourceTree = "<group>";
+		};
+		98A71F701EBD16716EEAA411E1DAA6AE /* YAKit */ = {
+			isa = PBXGroup;
+			children = (
+				6C25E8B68DAEF013CBD5CDFEB402FA7E /* MMapFile.cpp */,
+				5C58609D340DBD99FF4ECDA27436F597 /* MMapFile.h */,
+				AE0D49EF9F60480AAA43D446D19FA66C /* NSObject+YAComponent.h */,
+				F4F87F533DC40D816B28B4AF65E995FF /* NSObject+YAComponent.m */,
+				A1CEFE0225BD3309A2D0B4895922914B /* NSObject+YAObserve.h */,
+				BE08A964CB53F5FCAB14AB2D69791E79 /* NSObject+YAObserve.m */,
+				BAB54F149A91E16DA37DB0B41FD581A0 /* NSObject+YASwizzle.h */,
+				8EF2DBC07F519293A8272DCE6A8E1A00 /* NSObject+YASwizzle.m */,
+				5ED569F2455A157C285734859AEDB8A7 /* UIView+YAPresenter.h */,
+				21AD2E2EAB1FA196C90667735F62BE91 /* UIView+YAPresenter.m */,
+				0E9B82DC341EDAA4C36FC1D090F91038 /* UIViewController+YAPresenter.h */,
+				5F58072FD27D7FC9A6D901207E7DF366 /* UIViewController+YAPresenter.m */,
+				887628341EEDEE62DE93B42E8DBD1CD4 /* YAComponent.h */,
+				92E7AD4F66674493B6AF4588B8263832 /* YAComponent.m */,
+				D5ED97B1CD7F18B9A1E09A51778A8933 /* YAComponentProtocol.h */,
+				D10AC557253670E629A8C6227C5AD12F /* YAKit.h */,
+				2B1D7CACFEEEA5BE048656CABDF84A46 /* YAMMapFile.h */,
+				C4874FADF871BE4ADB5EA13D9A4CB4AE /* YAMMapFile.mm */,
+				04C099C6C7601216A65409E3AFA1050C /* YAModel.h */,
+				3F31A3F1D127D080DB58D2F54474FE30 /* YAModel.m */,
+				46E798CCEB59BAFA7635F8D9ED6CED20 /* YAVCPresenterProtocol.h */,
+				160BBF9BE7584EB343F48A7C0E0A2CE0 /* YAViewPresenterProtocol.h */,
+				3A7DC9AFEFF26762E8727E201D6E1CC9 /* Support Files */,
+			);
+			name = YAKit;
+			path = YAKit;
+			sourceTree = "<group>";
+		};
+		98D27F4BEFA3B678BFC74343FB6C5C5B /* Targets Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				37B9D470A8A69979094C055BE45D5E38 /* Pods-YAMediaKitDemo */,
+			);
+			name = "Targets Support Files";
+			sourceTree = "<group>";
+		};
+		99CCB7D2D7F8B238C726A519CB8F2CDA /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				1948106D36FD9B150C2E7ED5EC1CF366 /* libKVOController.a */,
+				AF15B1A7F1D2EBCCC24565B34F4CBBED /* libPods-YAMediaKitDemo.a */,
+				DD0AEFC39871B75471AEB70131920558 /* libYAKit.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		BC3CA7F9E30CC8F7E2DD044DD34432FC /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				D35AF013A5F0BAD4F32504907A52519E /* iOS */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		D35AF013A5F0BAD4F32504907A52519E /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				6604A7D69453B4569E4E4827FB9155A9 /* Foundation.framework */,
+			);
+			name = iOS;
+			sourceTree = "<group>";
+		};
+		E08522B57381017CBAB5331244D7AB13 /* KVOController */ = {
+			isa = PBXGroup;
+			children = (
+				1031D2FB445D6AD1B85E60FBE96D3BFB /* FBKVOController.h */,
+				7EDA47650C2F88EEBD83271527ADA5E5 /* FBKVOController.m */,
+				E13710670E73FEB0A215A35639C2FC4F /* KVOController.h */,
+				BA121180813EF158A11F54D569F8E3B9 /* NSObject+FBKVOController.h */,
+				2F1367733E20A40904C84AE1126C350E /* NSObject+FBKVOController.m */,
+				024DC8935263A9B55BFA2A7CDDA5EFB6 /* Support Files */,
+			);
+			name = KVOController;
+			path = KVOController;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		16813E94F4A2E6E790B59A514F87EAF9 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C2EF97D9D6EA360813CBBEC177989542 /* MMapFile.h in Headers */,
+				7EB862BDA484894F696C0BC329C5005C /* NSObject+YAComponent.h in Headers */,
+				E53B19C3B8890FA3EE09BC7851A6A510 /* NSObject+YAObserve.h in Headers */,
+				C6745A448A1BF587E99ED40A74650DE1 /* NSObject+YASwizzle.h in Headers */,
+				BA873B153F5FD7722309FAAE7AAC2FDB /* UIView+YAPresenter.h in Headers */,
+				4AE34BEC1A7097081710FA48882658AC /* UIViewController+YAPresenter.h in Headers */,
+				8703ED868E9614D950769DCC5AEB91E1 /* YAComponent.h in Headers */,
+				03C1A221AD37691786820C9EBE9E44F3 /* YAComponentProtocol.h in Headers */,
+				3B9471762BD00A545A4979DE89B02943 /* YAKit.h in Headers */,
+				CA8FB1F2624313A12DE4B45F60877CB4 /* YAMMapFile.h in Headers */,
+				1701485515E2030041E0274EDDFC31DF /* YAModel.h in Headers */,
+				2F81C9F94530766E21EFE7F321AF8DFC /* YAVCPresenterProtocol.h in Headers */,
+				B49577BF84BCD9245D3987E2BFB0201D /* YAViewPresenterProtocol.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		ADE7E2AC0F52AC82516B4935568D540E /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EBD8BD6A4FFC9E7A30E85603FF0118D6 /* FBKVOController.h in Headers */,
+				8A2C5CF2D28776EBB3B9EFF562CCCFC2 /* KVOController.h in Headers */,
+				541A1FF2BE6FDED04FC8174BDA96F005 /* NSObject+FBKVOController.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		20DC3C73467E7BF429BB421E6C927F2F /* YAKit */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C205707B006283ED4836489A499D0626 /* Build configuration list for PBXNativeTarget "YAKit" */;
+			buildPhases = (
+				292632D4F19EBD2EF9B2D663CBA3D5B3 /* Sources */,
+				1FA47F62FE6467DB961320D776ED10E1 /* Frameworks */,
+				16813E94F4A2E6E790B59A514F87EAF9 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				F0D57A8B2666ABFD760553D2FE78E867 /* PBXTargetDependency */,
+			);
+			name = YAKit;
+			productName = YAKit;
+			productReference = DD0AEFC39871B75471AEB70131920558 /* libYAKit.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+		9C2D3327264C1DB785EADD89D3242323 /* KVOController */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 63A5D756C612B03EA5ACB76CF9507AAA /* Build configuration list for PBXNativeTarget "KVOController" */;
+			buildPhases = (
+				C8875BCC040A6CD2937851D267B84125 /* Sources */,
+				1187AC59FF4A37B9334B5D2A4C96BAEB /* Frameworks */,
+				ADE7E2AC0F52AC82516B4935568D540E /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = KVOController;
+			productName = KVOController;
+			productReference = 1948106D36FD9B150C2E7ED5EC1CF366 /* libKVOController.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+		A6624D402B0F4484FECCB1A6F124B6E4 /* Pods-YAMediaKitDemo */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 14F04A4C57EB3F457F294CC4BC2D7CBC /* Build configuration list for PBXNativeTarget "Pods-YAMediaKitDemo" */;
+			buildPhases = (
+				1E6CAF21C90135F91F8C1BBBD5BCFA86 /* Sources */,
+				642FF7B0DEE20459794DEBE1867405EB /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				2BC9DFADC85DD38D59B37954F7CF5676 /* PBXTargetDependency */,
+				07FF8139BEC9CA0AD236A82DB8B8B045 /* PBXTargetDependency */,
+			);
+			name = "Pods-YAMediaKitDemo";
+			productName = "Pods-YAMediaKitDemo";
+			productReference = AF15B1A7F1D2EBCCC24565B34F4CBBED /* libPods-YAMediaKitDemo.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		D41D8CD98F00B204E9800998ECF8427E /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0830;
+				LastUpgradeCheck = 0700;
+			};
+			buildConfigurationList = 2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 7DB346D0F39D3F0E887471402A8071AB;
+			productRefGroup = 99CCB7D2D7F8B238C726A519CB8F2CDA /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				9C2D3327264C1DB785EADD89D3242323 /* KVOController */,
+				A6624D402B0F4484FECCB1A6F124B6E4 /* Pods-YAMediaKitDemo */,
+				20DC3C73467E7BF429BB421E6C927F2F /* YAKit */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		1E6CAF21C90135F91F8C1BBBD5BCFA86 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D8851FE966C13C2A1203047E2E6E7ABD /* Pods-YAMediaKitDemo-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		292632D4F19EBD2EF9B2D663CBA3D5B3 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				11425D0860F441ECDC37B4EDD631F3DA /* MMapFile.cpp in Sources */,
+				327ED7994B2E2BC2994F70768F209851 /* NSObject+YAComponent.m in Sources */,
+				607E76E56AF6FE0B6D90F0B2D6CFC3A5 /* NSObject+YAObserve.m in Sources */,
+				F7465E932863975AC23126A3E36FCFC0 /* NSObject+YASwizzle.m in Sources */,
+				3E9CC96725B149149ADBEC2C0EBB1520 /* UIView+YAPresenter.m in Sources */,
+				5484BDC3A4E3BB891B3C4C17047966ED /* UIViewController+YAPresenter.m in Sources */,
+				4F2855294B6D48AF944E44075B0724B4 /* YAComponent.m in Sources */,
+				3AC2BA4D09A1C7CFABF456E65E149065 /* YAKit-dummy.m in Sources */,
+				BE5D4FCD1FBBAB91F23DAB4CBD529D3F /* YAMMapFile.mm in Sources */,
+				C1ACDD5719EE86E5BFCF3FC46C98D5FC /* YAModel.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C8875BCC040A6CD2937851D267B84125 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				621D2C1BA7CB45FA9B66EF637CF7ADE5 /* FBKVOController.m in Sources */,
+				096701D5CCF79AB6D8EEA53CE521AAC0 /* KVOController-dummy.m in Sources */,
+				3B6D94894BA70F194950ECA4086BB51A /* NSObject+FBKVOController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		07FF8139BEC9CA0AD236A82DB8B8B045 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = YAKit;
+			target = 20DC3C73467E7BF429BB421E6C927F2F /* YAKit */;
+			targetProxy = 5A2B2BC80107A13137A4FAB0662C9916 /* PBXContainerItemProxy */;
+		};
+		2BC9DFADC85DD38D59B37954F7CF5676 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = KVOController;
+			target = 9C2D3327264C1DB785EADD89D3242323 /* KVOController */;
+			targetProxy = 835A9A195C9E13A92903EAB7BD021390 /* PBXContainerItemProxy */;
+		};
+		F0D57A8B2666ABFD760553D2FE78E867 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = KVOController;
+			target = 9C2D3327264C1DB785EADD89D3242323 /* KVOController */;
+			targetProxy = EC132C2324AEFF4AA52032D0BF46D41E /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		0D438B8DCA1E57E10B2B8F8FCF845D8C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = B750E0D45873189F7CC6704E2D53E301 /* YAKit.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				GCC_PREFIX_HEADER = "Target Support Files/YAKit/YAKit-prefix.pch";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRIVATE_HEADERS_FOLDER_PATH = "";
+				PUBLIC_HEADERS_FOLDER_PATH = "";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		39C5BC78A31CDE101068C530CAC7FA0F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGNING_REQUIRED = NO;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_DEBUG=1",
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = NO_SIGNING/;
+				STRIP_INSTALLED_PRODUCT = NO;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SYMROOT = "${SRCROOT}/../build";
+			};
+			name = Debug;
+		};
+		43DECF7B18047FE019E0A0809C82F6F5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5F36F50421213BB63C7C67E82F9024F4 /* Pods-YAMediaKitDemo.debug.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				MACH_O_TYPE = staticlib;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		811E328DB83245F40815DE18EBC7DDD2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = E6B456D420D6EE8AFC16232F0B2FDD63 /* Pods-YAMediaKitDemo.release.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				MACH_O_TYPE = staticlib;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		89C8BB24E37B25BAEEB8FBA01EE05DAF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGNING_REQUIRED = NO;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_RELEASE=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = NO_SIGNING/;
+				STRIP_INSTALLED_PRODUCT = NO;
+				SYMROOT = "${SRCROOT}/../build";
+			};
+			name = Release;
+		};
+		9D61B23192642219F11FC22F784BAB0C /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = FE4E11385E5EBEF550E12AEF83A5EA94 /* KVOController.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				GCC_PREFIX_HEADER = "Target Support Files/KVOController/KVOController-prefix.pch";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRIVATE_HEADERS_FOLDER_PATH = "";
+				PUBLIC_HEADERS_FOLDER_PATH = "";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		A0E0B7AF5130D86EEA9631A4892C3909 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = B750E0D45873189F7CC6704E2D53E301 /* YAKit.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				GCC_PREFIX_HEADER = "Target Support Files/YAKit/YAKit-prefix.pch";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRIVATE_HEADERS_FOLDER_PATH = "";
+				PUBLIC_HEADERS_FOLDER_PATH = "";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		BCD0CE30AAB078A10E44F976FB8E5C2B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = FE4E11385E5EBEF550E12AEF83A5EA94 /* KVOController.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				GCC_PREFIX_HEADER = "Target Support Files/KVOController/KVOController-prefix.pch";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRIVATE_HEADERS_FOLDER_PATH = "";
+				PUBLIC_HEADERS_FOLDER_PATH = "";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		14F04A4C57EB3F457F294CC4BC2D7CBC /* Build configuration list for PBXNativeTarget "Pods-YAMediaKitDemo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				43DECF7B18047FE019E0A0809C82F6F5 /* Debug */,
+				811E328DB83245F40815DE18EBC7DDD2 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				39C5BC78A31CDE101068C530CAC7FA0F /* Debug */,
+				89C8BB24E37B25BAEEB8FBA01EE05DAF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		63A5D756C612B03EA5ACB76CF9507AAA /* Build configuration list for PBXNativeTarget "KVOController" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BCD0CE30AAB078A10E44F976FB8E5C2B /* Debug */,
+				9D61B23192642219F11FC22F784BAB0C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C205707B006283ED4836489A499D0626 /* Build configuration list for PBXNativeTarget "YAKit" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0D438B8DCA1E57E10B2B8F8FCF845D8C /* Debug */,
+				A0E0B7AF5130D86EEA9631A4892C3909 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+}

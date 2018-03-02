@@ -15,6 +15,8 @@
 		03C2E4A72049389D00E3A5EA /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 03C2E4A62049389D00E3A5EA /* main.m */; };
 		03C2E4B02049393900E3A5EA /* AVPlayerItem+YA.m in Sources */ = {isa = PBXBuildFile; fileRef = 03C2E4AF2049393900E3A5EA /* AVPlayerItem+YA.m */; };
 		03C2E4B32049396D00E3A5EA /* YAVideoDownloader.m in Sources */ = {isa = PBXBuildFile; fileRef = 03C2E4B22049396D00E3A5EA /* YAVideoDownloader.m */; };
+		03C2E4B620493D0000E3A5EA /* NSURLSessionTask+YA.m in Sources */ = {isa = PBXBuildFile; fileRef = 03C2E4B520493D0000E3A5EA /* NSURLSessionTask+YA.m */; };
+		3321F6E1DEC063992B3ADCF4 /* libPods-YAMediaKitDemo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C6FF4AF1D53908BAB81EA360 /* libPods-YAMediaKitDemo.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +34,11 @@
 		03C2E4AF2049393900E3A5EA /* AVPlayerItem+YA.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "AVPlayerItem+YA.m"; sourceTree = "<group>"; };
 		03C2E4B12049396D00E3A5EA /* YAVideoDownloader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YAVideoDownloader.h; sourceTree = "<group>"; };
 		03C2E4B22049396D00E3A5EA /* YAVideoDownloader.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YAVideoDownloader.m; sourceTree = "<group>"; };
+		03C2E4B420493D0000E3A5EA /* NSURLSessionTask+YA.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSURLSessionTask+YA.h"; sourceTree = "<group>"; };
+		03C2E4B520493D0000E3A5EA /* NSURLSessionTask+YA.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSURLSessionTask+YA.m"; sourceTree = "<group>"; };
+		79E7AB94847641CE758C0F99 /* Pods-YAMediaKitDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YAMediaKitDemo.release.xcconfig"; path = "Pods/Target Support Files/Pods-YAMediaKitDemo/Pods-YAMediaKitDemo.release.xcconfig"; sourceTree = "<group>"; };
+		C6FF4AF1D53908BAB81EA360 /* libPods-YAMediaKitDemo.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-YAMediaKitDemo.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		FD3187E15004BF59C65FC1D2 /* Pods-YAMediaKitDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YAMediaKitDemo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-YAMediaKitDemo/Pods-YAMediaKitDemo.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -39,6 +46,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3321F6E1DEC063992B3ADCF4 /* libPods-YAMediaKitDemo.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -50,6 +58,8 @@
 			children = (
 				03C2E4962049389D00E3A5EA /* YAMediaKitDemo */,
 				03C2E4952049389D00E3A5EA /* Products */,
+				27E298CEA34993FE80114D80 /* Pods */,
+				F98C834CC3FD623A68412B5E /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -85,9 +95,28 @@
 				03C2E4AF2049393900E3A5EA /* AVPlayerItem+YA.m */,
 				03C2E4B12049396D00E3A5EA /* YAVideoDownloader.h */,
 				03C2E4B22049396D00E3A5EA /* YAVideoDownloader.m */,
+				03C2E4B420493D0000E3A5EA /* NSURLSessionTask+YA.h */,
+				03C2E4B520493D0000E3A5EA /* NSURLSessionTask+YA.m */,
 			);
 			name = AVKit;
 			path = ../../AVKit;
+			sourceTree = "<group>";
+		};
+		27E298CEA34993FE80114D80 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				FD3187E15004BF59C65FC1D2 /* Pods-YAMediaKitDemo.debug.xcconfig */,
+				79E7AB94847641CE758C0F99 /* Pods-YAMediaKitDemo.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		F98C834CC3FD623A68412B5E /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				C6FF4AF1D53908BAB81EA360 /* libPods-YAMediaKitDemo.a */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -97,9 +126,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 03C2E4AA2049389D00E3A5EA /* Build configuration list for PBXNativeTarget "YAMediaKitDemo" */;
 			buildPhases = (
+				E426072B7128AF764A7707DB /* [CP] Check Pods Manifest.lock */,
 				03C2E4902049389D00E3A5EA /* Sources */,
 				03C2E4912049389D00E3A5EA /* Frameworks */,
 				03C2E4922049389D00E3A5EA /* Resources */,
+				DCCCF4D39A81768A9115F880 /* [CP] Embed Pods Frameworks */,
+				CCB3C4EC031598035B8399A3 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -156,6 +188,57 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		CCB3C4EC031598035B8399A3 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-YAMediaKitDemo/Pods-YAMediaKitDemo-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		DCCCF4D39A81768A9115F880 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-YAMediaKitDemo/Pods-YAMediaKitDemo-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E426072B7128AF764A7707DB /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-YAMediaKitDemo-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		03C2E4902049389D00E3A5EA /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -163,6 +246,7 @@
 			files = (
 				03C2E4B02049393900E3A5EA /* AVPlayerItem+YA.m in Sources */,
 				03C2E49C2049389D00E3A5EA /* ViewController.m in Sources */,
+				03C2E4B620493D0000E3A5EA /* NSURLSessionTask+YA.m in Sources */,
 				03C2E4A72049389D00E3A5EA /* main.m in Sources */,
 				03C2E4B32049396D00E3A5EA /* YAVideoDownloader.m in Sources */,
 				03C2E4992049389D00E3A5EA /* AppDelegate.m in Sources */,
@@ -297,6 +381,7 @@
 		};
 		03C2E4AB2049389D00E3A5EA /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = FD3187E15004BF59C65FC1D2 /* Pods-YAMediaKitDemo.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -311,6 +396,7 @@
 		};
 		03C2E4AC2049389D00E3A5EA /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 79E7AB94847641CE758C0F99 /* Pods-YAMediaKitDemo.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;

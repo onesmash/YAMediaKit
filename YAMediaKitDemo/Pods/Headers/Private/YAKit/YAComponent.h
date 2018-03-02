@@ -1,0 +1,1 @@
+../../../YAKit/YAKit/Foundation/Architecture/YAComponent.h

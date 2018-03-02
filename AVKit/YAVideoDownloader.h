@@ -7,7 +7,13 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <AVFoundation/AVFoundation.h>
 
-@interface YAVideoDownloader : NSObject
+#define kDownloaderSupportSchemeSuffix @"-stream"
+
+@interface YAVideoDownloader : NSObject <AVAssetResourceLoaderDelegate>
+
+@property (class, nonatomic, strong, readonly) NSOperationQueue *operationQueue;
++ (instancetype)downloaderWithURL:(NSURL *)URL;
 
 @end

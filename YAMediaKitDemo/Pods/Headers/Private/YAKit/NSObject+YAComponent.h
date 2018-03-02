@@ -1,0 +1,1 @@
+../../../YAKit/YAKit/Foundation/Architecture/NSObject+YAComponent.h
