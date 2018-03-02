@@ -1,0 +1,350 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 48;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		03C2E4992049389D00E3A5EA /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 03C2E4982049389D00E3A5EA /* AppDelegate.m */; };
+		03C2E49C2049389D00E3A5EA /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 03C2E49B2049389D00E3A5EA /* ViewController.m */; };
+		03C2E49F2049389D00E3A5EA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 03C2E49D2049389D00E3A5EA /* Main.storyboard */; };
+		03C2E4A12049389D00E3A5EA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 03C2E4A02049389D00E3A5EA /* Assets.xcassets */; };
+		03C2E4A42049389D00E3A5EA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 03C2E4A22049389D00E3A5EA /* LaunchScreen.storyboard */; };
+		03C2E4A72049389D00E3A5EA /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 03C2E4A62049389D00E3A5EA /* main.m */; };
+		03C2E4B02049393900E3A5EA /* AVPlayerItem+YA.m in Sources */ = {isa = PBXBuildFile; fileRef = 03C2E4AF2049393900E3A5EA /* AVPlayerItem+YA.m */; };
+		03C2E4B32049396D00E3A5EA /* YAVideoDownloader.m in Sources */ = {isa = PBXBuildFile; fileRef = 03C2E4B22049396D00E3A5EA /* YAVideoDownloader.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		03C2E4942049389D00E3A5EA /* YAMediaKitDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = YAMediaKitDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		03C2E4972049389D00E3A5EA /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		03C2E4982049389D00E3A5EA /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		03C2E49A2049389D00E3A5EA /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		03C2E49B2049389D00E3A5EA /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		03C2E49E2049389D00E3A5EA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		03C2E4A02049389D00E3A5EA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		03C2E4A32049389D00E3A5EA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		03C2E4A52049389D00E3A5EA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		03C2E4A62049389D00E3A5EA /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		03C2E4AE2049393900E3A5EA /* AVPlayerItem+YA.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "AVPlayerItem+YA.h"; sourceTree = "<group>"; };
+		03C2E4AF2049393900E3A5EA /* AVPlayerItem+YA.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "AVPlayerItem+YA.m"; sourceTree = "<group>"; };
+		03C2E4B12049396D00E3A5EA /* YAVideoDownloader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YAVideoDownloader.h; sourceTree = "<group>"; };
+		03C2E4B22049396D00E3A5EA /* YAVideoDownloader.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YAVideoDownloader.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		03C2E4912049389D00E3A5EA /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		03C2E48B2049389D00E3A5EA = {
+			isa = PBXGroup;
+			children = (
+				03C2E4962049389D00E3A5EA /* YAMediaKitDemo */,
+				03C2E4952049389D00E3A5EA /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		03C2E4952049389D00E3A5EA /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				03C2E4942049389D00E3A5EA /* YAMediaKitDemo.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		03C2E4962049389D00E3A5EA /* YAMediaKitDemo */ = {
+			isa = PBXGroup;
+			children = (
+				03C2E4AD204938CD00E3A5EA /* AVKit */,
+				03C2E4972049389D00E3A5EA /* AppDelegate.h */,
+				03C2E4982049389D00E3A5EA /* AppDelegate.m */,
+				03C2E49A2049389D00E3A5EA /* ViewController.h */,
+				03C2E49B2049389D00E3A5EA /* ViewController.m */,
+				03C2E49D2049389D00E3A5EA /* Main.storyboard */,
+				03C2E4A02049389D00E3A5EA /* Assets.xcassets */,
+				03C2E4A22049389D00E3A5EA /* LaunchScreen.storyboard */,
+				03C2E4A52049389D00E3A5EA /* Info.plist */,
+				03C2E4A62049389D00E3A5EA /* main.m */,
+			);
+			path = YAMediaKitDemo;
+			sourceTree = "<group>";
+		};
+		03C2E4AD204938CD00E3A5EA /* AVKit */ = {
+			isa = PBXGroup;
+			children = (
+				03C2E4AE2049393900E3A5EA /* AVPlayerItem+YA.h */,
+				03C2E4AF2049393900E3A5EA /* AVPlayerItem+YA.m */,
+				03C2E4B12049396D00E3A5EA /* YAVideoDownloader.h */,
+				03C2E4B22049396D00E3A5EA /* YAVideoDownloader.m */,
+			);
+			name = AVKit;
+			path = ../../AVKit;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		03C2E4932049389D00E3A5EA /* YAMediaKitDemo */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 03C2E4AA2049389D00E3A5EA /* Build configuration list for PBXNativeTarget "YAMediaKitDemo" */;
+			buildPhases = (
+				03C2E4902049389D00E3A5EA /* Sources */,
+				03C2E4912049389D00E3A5EA /* Frameworks */,
+				03C2E4922049389D00E3A5EA /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = YAMediaKitDemo;
+			productName = YAMediaKitDemo;
+			productReference = 03C2E4942049389D00E3A5EA /* YAMediaKitDemo.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		03C2E48C2049389D00E3A5EA /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0920;
+				ORGANIZATIONNAME = "徐晖";
+				TargetAttributes = {
+					03C2E4932049389D00E3A5EA = {
+						CreatedOnToolsVersion = 9.2;
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = 03C2E48F2049389D00E3A5EA /* Build configuration list for PBXProject "YAMediaKitDemo" */;
+			compatibilityVersion = "Xcode 8.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 03C2E48B2049389D00E3A5EA;
+			productRefGroup = 03C2E4952049389D00E3A5EA /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				03C2E4932049389D00E3A5EA /* YAMediaKitDemo */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		03C2E4922049389D00E3A5EA /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				03C2E4A42049389D00E3A5EA /* LaunchScreen.storyboard in Resources */,
+				03C2E4A12049389D00E3A5EA /* Assets.xcassets in Resources */,
+				03C2E49F2049389D00E3A5EA /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		03C2E4902049389D00E3A5EA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				03C2E4B02049393900E3A5EA /* AVPlayerItem+YA.m in Sources */,
+				03C2E49C2049389D00E3A5EA /* ViewController.m in Sources */,
+				03C2E4A72049389D00E3A5EA /* main.m in Sources */,
+				03C2E4B32049396D00E3A5EA /* YAVideoDownloader.m in Sources */,
+				03C2E4992049389D00E3A5EA /* AppDelegate.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		03C2E49D2049389D00E3A5EA /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				03C2E49E2049389D00E3A5EA /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		03C2E4A22049389D00E3A5EA /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				03C2E4A32049389D00E3A5EA /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		03C2E4A82049389D00E3A5EA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		03C2E4A92049389D00E3A5EA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		03C2E4AB2049389D00E3A5EA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = SAH4Y68J6G;
+				INFOPLIST_FILE = YAMediaKitDemo/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = io.github.onesmash.YAMediaKitDemo;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		03C2E4AC2049389D00E3A5EA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = SAH4Y68J6G;
+				INFOPLIST_FILE = YAMediaKitDemo/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = io.github.onesmash.YAMediaKitDemo;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		03C2E48F2049389D00E3A5EA /* Build configuration list for PBXProject "YAMediaKitDemo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				03C2E4A82049389D00E3A5EA /* Debug */,
+				03C2E4A92049389D00E3A5EA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		03C2E4AA2049389D00E3A5EA /* Build configuration list for PBXNativeTarget "YAMediaKitDemo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				03C2E4AB2049389D00E3A5EA /* Debug */,
+				03C2E4AC2049389D00E3A5EA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 03C2E48C2049389D00E3A5EA /* Project object */;
+}
