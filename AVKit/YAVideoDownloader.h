@@ -12,7 +12,7 @@
 #define kDownloaderSupportSchemeSuffix @"-stream"
 
 @interface YAVideoDownloader : NSObject <AVAssetResourceLoaderDelegate>
-
+@property (class, nonatomic, copy) NSString *videoDir;
 @property (class, nonatomic, strong, readonly) NSOperationQueue *operationQueue;
 + (instancetype)downloaderWithURL:(NSURL *)URL;
 
