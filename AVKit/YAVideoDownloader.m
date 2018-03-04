@@ -11,8 +11,11 @@
 #import <YAKit/YAMMapFile.h>
 #import <YAKit/YAKit.h>
 #import <MobileCoreServices/MobileCoreServices.h>
+#import <objc/runtime.h>
 
 #define kPathSuffix @"YAMedia/Video"
+
+static char kVideoDirKey;
 
 @interface NSHTTPURLResponse (VideoCache)
 - (long long)ya_videoSize;
@@ -38,6 +41,9 @@
 - (NSString *)ya_contentType
 {
     NSString *mimeType = [self MIMEType];
+    if(![AVURLAsset isPlayableExtendedMIMEType:mimeType]) {
+        mimeType = @"video/mp4";
+    }
     CFStringRef contentType = UTTypeCreatePreferredIdentifierForTag(kUTTagClassMIMEType, (__bridge CFStringRef)(mimeType), NULL);
     return CFBridgingRelease(contentType);
 }
@@ -101,6 +107,16 @@
 @end
 
 @implementation YAVideoDownloader
+
++ (NSString *)videoDir
+{
+    return objc_getAssociatedObject(self, &kVideoDirKey);
+}
+
++ (void)setVideoDir:(NSString *)videoDir
+{
+    objc_setAssociatedObject(self, &kVideoDirKey, videoDir, OBJC_ASSOCIATION_COPY_NONATOMIC);
+}
 
 + (NSString *)tmpFilePath:(NSURL *)URL
 {
