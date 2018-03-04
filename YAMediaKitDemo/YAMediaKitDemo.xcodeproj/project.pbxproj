@@ -13,9 +13,6 @@
 		03C2E4A12049389D00E3A5EA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 03C2E4A02049389D00E3A5EA /* Assets.xcassets */; };
 		03C2E4A42049389D00E3A5EA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 03C2E4A22049389D00E3A5EA /* LaunchScreen.storyboard */; };
 		03C2E4A72049389D00E3A5EA /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 03C2E4A62049389D00E3A5EA /* main.m */; };
-		03C2E4B02049393900E3A5EA /* AVPlayerItem+YA.m in Sources */ = {isa = PBXBuildFile; fileRef = 03C2E4AF2049393900E3A5EA /* AVPlayerItem+YA.m */; };
-		03C2E4B32049396D00E3A5EA /* YAVideoDownloader.m in Sources */ = {isa = PBXBuildFile; fileRef = 03C2E4B22049396D00E3A5EA /* YAVideoDownloader.m */; };
-		03C2E4B620493D0000E3A5EA /* NSURLSessionTask+YA.m in Sources */ = {isa = PBXBuildFile; fileRef = 03C2E4B520493D0000E3A5EA /* NSURLSessionTask+YA.m */; };
 		3321F6E1DEC063992B3ADCF4 /* libPods-YAMediaKitDemo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C6FF4AF1D53908BAB81EA360 /* libPods-YAMediaKitDemo.a */; };
 /* End PBXBuildFile section */
 
@@ -30,12 +27,6 @@
 		03C2E4A32049389D00E3A5EA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		03C2E4A52049389D00E3A5EA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		03C2E4A62049389D00E3A5EA /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		03C2E4AE2049393900E3A5EA /* AVPlayerItem+YA.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "AVPlayerItem+YA.h"; sourceTree = "<group>"; };
-		03C2E4AF2049393900E3A5EA /* AVPlayerItem+YA.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "AVPlayerItem+YA.m"; sourceTree = "<group>"; };
-		03C2E4B12049396D00E3A5EA /* YAVideoDownloader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YAVideoDownloader.h; sourceTree = "<group>"; };
-		03C2E4B22049396D00E3A5EA /* YAVideoDownloader.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YAVideoDownloader.m; sourceTree = "<group>"; };
-		03C2E4B420493D0000E3A5EA /* NSURLSessionTask+YA.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSURLSessionTask+YA.h"; sourceTree = "<group>"; };
-		03C2E4B520493D0000E3A5EA /* NSURLSessionTask+YA.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSURLSessionTask+YA.m"; sourceTree = "<group>"; };
 		79E7AB94847641CE758C0F99 /* Pods-YAMediaKitDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YAMediaKitDemo.release.xcconfig"; path = "Pods/Target Support Files/Pods-YAMediaKitDemo/Pods-YAMediaKitDemo.release.xcconfig"; sourceTree = "<group>"; };
 		C6FF4AF1D53908BAB81EA360 /* libPods-YAMediaKitDemo.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-YAMediaKitDemo.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		FD3187E15004BF59C65FC1D2 /* Pods-YAMediaKitDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YAMediaKitDemo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-YAMediaKitDemo/Pods-YAMediaKitDemo.debug.xcconfig"; sourceTree = "<group>"; };
@@ -74,7 +65,6 @@
 		03C2E4962049389D00E3A5EA /* YAMediaKitDemo */ = {
 			isa = PBXGroup;
 			children = (
-				03C2E4AD204938CD00E3A5EA /* AVKit */,
 				03C2E4972049389D00E3A5EA /* AppDelegate.h */,
 				03C2E4982049389D00E3A5EA /* AppDelegate.m */,
 				03C2E49A2049389D00E3A5EA /* ViewController.h */,
@@ -86,20 +76,6 @@
 				03C2E4A62049389D00E3A5EA /* main.m */,
 			);
 			path = YAMediaKitDemo;
-			sourceTree = "<group>";
-		};
-		03C2E4AD204938CD00E3A5EA /* AVKit */ = {
-			isa = PBXGroup;
-			children = (
-				03C2E4AE2049393900E3A5EA /* AVPlayerItem+YA.h */,
-				03C2E4AF2049393900E3A5EA /* AVPlayerItem+YA.m */,
-				03C2E4B12049396D00E3A5EA /* YAVideoDownloader.h */,
-				03C2E4B22049396D00E3A5EA /* YAVideoDownloader.m */,
-				03C2E4B420493D0000E3A5EA /* NSURLSessionTask+YA.h */,
-				03C2E4B520493D0000E3A5EA /* NSURLSessionTask+YA.m */,
-			);
-			name = AVKit;
-			path = ../../AVKit;
 			sourceTree = "<group>";
 		};
 		27E298CEA34993FE80114D80 /* Pods */ = {
@@ -244,11 +220,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				03C2E4B02049393900E3A5EA /* AVPlayerItem+YA.m in Sources */,
 				03C2E49C2049389D00E3A5EA /* ViewController.m in Sources */,
-				03C2E4B620493D0000E3A5EA /* NSURLSessionTask+YA.m in Sources */,
 				03C2E4A72049389D00E3A5EA /* main.m in Sources */,
-				03C2E4B32049396D00E3A5EA /* YAVideoDownloader.m in Sources */,
 				03C2E4992049389D00E3A5EA /* AppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

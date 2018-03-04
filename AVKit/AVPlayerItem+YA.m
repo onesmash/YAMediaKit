@@ -7,6 +7,7 @@
 //
 
 #import "AVPlayerItem+YA.h"
+#import "YAVideoDownloader.h"
 #import <objc/runtime.h>
 
 static char kDownloaderKey;

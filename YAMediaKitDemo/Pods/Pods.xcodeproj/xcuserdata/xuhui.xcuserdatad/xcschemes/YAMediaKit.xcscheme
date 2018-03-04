@@ -14,10 +14,10 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = 'FF8B2BAC41CF4051E5983BF00F3B8D1F'
-               BlueprintName = 'YAKit'
+               BlueprintIdentifier = 'ADBB3C6D0F207571AD35B794CE99887A'
+               BlueprintName = 'YAMediaKit'
                ReferencedContainer = 'container:Pods.xcodeproj'
-               BuildableName = 'libYAKit.a'>
+               BuildableName = 'libYAMediaKit.a'>
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>

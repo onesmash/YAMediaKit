@@ -12,6 +12,8 @@
 #import <YAKit/YAKit.h>
 #import <MobileCoreServices/MobileCoreServices.h>
 
+#define kPathSuffix @"YAMedia/Video"
+
 @interface NSHTTPURLResponse (VideoCache)
 - (long long)ya_videoSize;
 - (NSString *)ya_contentType;
@@ -91,18 +93,296 @@
 @end
 
 @interface YAVideoDownloader () <NSURLSessionDataDelegate>
-@property (nonatomic, copy) NSString *metaFilePath;
-@property (nonatomic, copy) NSString *tmpFilePath;
-@property (nonatomic, copy) NSString *cacheFilePath;
-@property (nonatomic, copy) NSString *cacheMetaFilePath;
 @property (nonatomic, strong) NSURLSession *urlSession;
 @property (nonatomic, strong) YAVideoMeta *videoMeta;
 @property (nonatomic, strong) YAMMapFile *mmapFile;
 @property (nonatomic, strong) NSMutableIndexSet *availableDataRange;
+@property (nonatomic, copy) NSURL *URL;
 @end
 
 @implementation YAVideoDownloader
 
++ (NSString *)tmpFilePath:(NSURL *)URL
+{
+    NSString *videoDir = [NSTemporaryDirectory() stringByAppendingPathComponent:kPathSuffix];
+    NSFileManager *fileManager = [NSFileManager defaultManager];
+    if (![fileManager fileExistsAtPath:videoDir]) {
+        [fileManager createDirectoryAtPath:videoDir
+               withIntermediateDirectories:YES
+                                attributes:nil
+                                     error:nil];
+    }
+    return [videoDir stringByAppendingPathComponent:[URL.absoluteString ya_md5]];
+}
 
++ (NSString *)tmpMetaFilePath:(NSURL *)URL
+{
+    return [[self tmpFilePath:URL] stringByAppendingPathExtension:@"meta"];
+}
+
++ (NSString *)cacheFilePath:(NSURL *)URL
+{
+    NSString *videoDir = self.videoDir.length ? self.videoDir : [[NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) firstObject] stringByAppendingPathComponent:kPathSuffix];
+    NSFileManager *fileManager = [NSFileManager defaultManager];
+    if (![fileManager fileExistsAtPath:videoDir]) {
+        [fileManager createDirectoryAtPath:videoDir
+               withIntermediateDirectories:YES
+                                attributes:nil
+                                     error:nil];
+    }
+    return [videoDir stringByAppendingPathComponent:[URL.absoluteString ya_md5]];
+}
+
++ (NSString *)cacheMetaFilePath:(NSURL *)URL
+{
+    return [[self cacheFilePath:URL] stringByAppendingPathExtension:@"meta"];
+}
+
++ (instancetype)downloaderWithURL:(NSURL *)URL
+{
+    return [[YAVideoDownloader alloc] initWithURL:URL];
+}
+
++ (NSOperationQueue *)operationQueue
+{
+    static NSOperationQueue *queue;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        queue = [[NSOperationQueue alloc] init];
+        queue.maxConcurrentOperationCount = 1;
+        queue.name = @"io.onesmash.mediakit.downloader";
+    });
+    return queue;
+}
+
+- (instancetype)initWithURL:(NSURL *)URL
+{
+    self = [self init];
+    if(self) {
+        _URL = URL;
+        _availableDataRange = [NSMutableIndexSet indexSet];
+        _videoMeta = [[YAVideoMeta alloc] init];
+        _urlSession = [NSURLSession sessionWithConfiguration:[NSURLSessionConfiguration defaultSessionConfiguration] delegate:self delegateQueue:[self.class operationQueue]];
+        [self prepareVideoCache];
+    }
+    return self;
+}
+
+- (void)dealloc
+{
+    [self.mmapFile flush:NO];
+    NSString *cacheFilePath = [self cacheFilePath];
+    NSString *cacheMetaFilePath = [self cacheMetaFilePath];
+    NSMutableIndexSet *availableDataRange = self.availableDataRange;
+    YAVideoMeta *videoMeta = self.videoMeta;
+    [self.class.operationQueue addOperationWithBlock:^() {
+        if(![[NSFileManager defaultManager] fileExistsAtPath:cacheFilePath]) {
+            YAVideoDownloadMeta *meta = [[YAVideoDownloadMeta alloc] init];
+            meta.availableDataRange = availableDataRange;
+            meta.videoMeta = videoMeta;
+            [NSKeyedArchiver archiveRootObject:meta toFile:cacheMetaFilePath];
+        }
+    }];
+    
+}
+
+- (NSString *)tmpFilePath
+{
+    return [self.class tmpFilePath:self.URL];
+}
+
+- (NSString *)tmpMetaFilePath
+{
+    return [self.class tmpMetaFilePath:self.URL];
+}
+
+- (NSString *)cacheFilePath
+{
+    return [self.class cacheFilePath:self.URL];
+}
+
+- (NSString *)cacheMetaFilePath
+{
+    return [self.class cacheMetaFilePath:self.URL];
+}
+
+- (void)updateLoadingRequest:(AVAssetResourceLoadingRequest *)loadingRequest withVideoMeta:(YAVideoMeta *)meta
+{
+    loadingRequest.contentInformationRequest.byteRangeAccessSupported = YES;
+    loadingRequest.contentInformationRequest.contentType = meta.contentType;
+    loadingRequest.contentInformationRequest.contentLength = meta.size;
+}
+
+- (void)updatePendingRequest:(NSURLSessionDataTask *)dataTask recvRange:(NSRange)range
+{
+    dataTask.ya_range = NSMakeRange(range.location + range.length, dataTask.ya_range.length - range.length);
+}
+
+- (void)updatePendingRequest:(NSURLSessionDataTask *)dataTask responseData:(NSData *)data
+{
+    AVAssetResourceLoadingRequest *loadingRequest = dataTask.ya_AVAssetResourceLoadingRequest;
+    NSRange range = NSMakeRange(dataTask.ya_range.location, data.length);
+    [self updatePendingRequest:dataTask recvRange:range];
+    [self.mmapFile write:(const char*)data.bytes size:range.length offset:range.location];
+    [self.availableDataRange addIndexesInRange:range];
+    NSRange requestRange = [self requestRange:loadingRequest];
+    NSMutableIndexSet *requestIndexSet = [NSMutableIndexSet indexSetWithIndexesInRange:requestRange];
+    [requestIndexSet removeIndexes:self.availableDataRange];
+    NSUInteger endIndex = requestIndexSet.firstIndex;
+    if(endIndex == NSNotFound) {
+        endIndex = requestRange.location + requestRange.length;
+    }
+    if(endIndex > loadingRequest.dataRequest.currentOffset) {
+        NSUInteger size = endIndex - loadingRequest.dataRequest.currentOffset;
+        const char* cacheData = [self.mmapFile read:size offset:loadingRequest.dataRequest.currentOffset];
+        NSData *data = [NSData dataWithBytes:cacheData length:size];
+        [loadingRequest.dataRequest respondWithData:data];
+        if([self.availableDataRange containsIndexesInRange:NSMakeRange(0, self.videoMeta.size)]) {
+            [self.class.operationQueue addOperationWithBlock:^() {
+                [self.mmapFile flush:NO];
+                [[NSFileManager defaultManager] copyItemAtPath:self.tmpFilePath toPath:self.cacheFilePath error:nil];
+                [NSKeyedArchiver archiveRootObject:self.videoMeta toFile:self.cacheMetaFilePath];
+            }];
+        }
+    }
+}
+
+#pragma mark - Util
+
+- (void)prepareVideoCache
+{
+    [self.class.operationQueue addOperationWithBlock:^() {
+        if([[NSFileManager defaultManager] fileExistsAtPath:self.cacheFilePath] && [[NSFileManager defaultManager] fileExistsAtPath:self.cacheMetaFilePath]) {
+            self.videoMeta = [NSKeyedUnarchiver unarchiveObjectWithFile:self.cacheMetaFilePath];
+            _mmapFile = [[YAMMapFile alloc] initWithFilePath:self.cacheFilePath openMode:YAMMapFileOpenModeRead];
+            [self.availableDataRange addIndexesInRange:NSMakeRange(0, self.self.videoMeta.size)];
+        } else if ([[NSFileManager defaultManager] fileExistsAtPath:self.tmpFilePath] && [[NSFileManager defaultManager] fileExistsAtPath:self.tmpMetaFilePath]) {
+            YAVideoDownloadMeta *meta = [NSKeyedUnarchiver unarchiveObjectWithFile:self.tmpMetaFilePath];
+            _mmapFile = [[YAMMapFile alloc] initWithFilePath:self.tmpFilePath openMode:YAMMapFileOpenModeWriteAppend];
+            self.availableDataRange = [[NSMutableIndexSet alloc] initWithIndexSet:meta.availableDataRange];
+        }
+    }];
+}
+
+- (void)createTmpFile:(size_t)size
+{
+    if(!_mmapFile) {
+        _mmapFile = [[YAMMapFile alloc] initWithFilePath:self.tmpFilePath size:size openMode:YAMMapFileOpenModeWriteTruncate];
+        self.videoMeta.size = size;
+    } else if(size != _mmapFile.size) {
+        _mmapFile = [[YAMMapFile alloc] initWithFilePath:self.tmpFilePath size:size openMode:YAMMapFileOpenModeWriteAppend];
+        self.videoMeta.size = size;
+    }
+}
+
+- (NSURLRequest *)buildRequestWithAVAssetResourceLoadingRequest:(AVAssetResourceLoadingRequest *)loadingRequest requestRange:(NSRange)requestRange
+{
+    NSString *orignalScheme = [loadingRequest.request.URL.scheme stringByReplacingOccurrencesOfString:kDownloaderSupportSchemeSuffix withString:@""];
+    NSURLComponents *actualURLComponents = [[NSURLComponents alloc] initWithURL:loadingRequest.request.URL resolvingAgainstBaseURL:NO];
+    actualURLComponents.scheme = orignalScheme;
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:actualURLComponents.URL];
+    request.cachePolicy = NSURLRequestReloadIgnoringLocalAndRemoteCacheData;
+    request.allHTTPHeaderFields = loadingRequest.request.allHTTPHeaderFields;
+    NSString *range = [NSString stringWithFormat:@"bytes=%@-%@", @(requestRange.location), @(requestRange.location + requestRange.length - 1)];
+    [request setValue:range forHTTPHeaderField:@"Range"];
+    return request;
+}
+
+- (void)responseLoadingRequest:(AVAssetResourceLoadingRequest *)loadingRequest withCacheData:(NSRange)range
+{
+    NSData *data = [NSData dataWithBytes:(void *)(self.mmapFile.base + range.location) length:range.length];
+    [loadingRequest.dataRequest respondWithData:data];
+    [loadingRequest finishLoading];
+}
+
+- (NSRange)requestRange:(AVAssetResourceLoadingRequest *)loadingRequest
+{
+    NSInteger requestOffset = loadingRequest.dataRequest.requestedOffset;
+    NSInteger requestLength;
+    if(loadingRequest.dataRequest.requestsAllDataToEndOfResource) {
+        requestLength = self.videoMeta.size ? self.videoMeta.size - requestOffset : NSIntegerMax;
+    } else {
+        requestLength = loadingRequest.dataRequest.requestedLength;
+    }
+    return NSMakeRange(requestOffset, requestLength);
+}
+
+#pragma mark - AVAssetResourceLoaderDelegate
+- (BOOL)resourceLoader:(AVAssetResourceLoader *)resourceLoader shouldWaitForLoadingOfRequestedResource:(AVAssetResourceLoadingRequest *)loadingRequest
+{
+    [self.class.operationQueue addOperationWithBlock:^() {
+        NSRange requestRange = [self requestRange:loadingRequest];
+        if([self.availableDataRange containsIndexesInRange:requestRange]) {
+            [self updateLoadingRequest:loadingRequest withVideoMeta:self.videoMeta];
+            [self responseLoadingRequest:loadingRequest withCacheData:requestRange];
+        } else {
+            NSMutableIndexSet *requestIndexSet = [NSMutableIndexSet indexSetWithIndexesInRange:requestRange];
+            [requestIndexSet removeIndexes:self.availableDataRange];
+            [requestIndexSet enumerateRangesUsingBlock:^(NSRange range, BOOL *stop) {
+                NSURLRequest *request = [self buildRequestWithAVAssetResourceLoadingRequest:loadingRequest requestRange:range];
+                NSURLSessionDataTask *task = [self.urlSession dataTaskWithRequest:request];
+                task.ya_AVAssetResourceLoadingRequest = loadingRequest;
+                task.ya_range = range;
+                [task resume];
+            }];
+        }
+    }];
+    return YES;
+}
+
+- (void)resourceLoader:(AVAssetResourceLoader *)resourceLoader didCancelLoadingRequest:(AVAssetResourceLoadingRequest *)loadingRequest
+{
+}
+
+#pragma mark - NSURLSessionDataDelegate
+
+- (void)URLSession:(NSURLSession *)session dataTask:(NSURLSessionDataTask *)dataTask
+didReceiveResponse:(NSURLResponse *)response
+ completionHandler:(void (^)(NSURLSessionResponseDisposition disposition))completionHandler
+{
+    NSInteger statusCode = [(NSHTTPURLResponse *)response statusCode];
+    if(statusCode == 206 || statusCode == 200) {
+        self.videoMeta = [YAVideoMeta videoMetaWithHTTPResponse:(NSHTTPURLResponse *)response];
+        [self createTmpFile:self.videoMeta.size];
+        dataTask.ya_AVAssetResourceLoadingRequest.response = response;
+        [self updateLoadingRequest:dataTask.ya_AVAssetResourceLoadingRequest withVideoMeta:self.videoMeta];
+    }
+    completionHandler(NSURLSessionResponseAllow);
+    if(dataTask.ya_AVAssetResourceLoadingRequest.isCancelled) {
+        [dataTask cancel];
+    }
+}
+
+- (void)URLSession:(NSURLSession *)session dataTask:(NSURLSessionDataTask *)dataTask
+    didReceiveData:(NSData *)data
+{
+    [self updatePendingRequest:dataTask responseData:data];
+    BOOL isFinished = NO;
+    AVAssetResourceLoadingDataRequest *dataRequest = dataTask.ya_AVAssetResourceLoadingRequest.dataRequest;
+    if(!dataRequest.requestsAllDataToEndOfResource) {
+        isFinished = dataRequest.currentOffset >= dataRequest.requestedOffset + dataRequest.requestedLength;
+    } else {
+        isFinished = dataRequest.currentOffset >= self.videoMeta.size;
+    }
+    if(isFinished) {
+        [dataTask.ya_AVAssetResourceLoadingRequest finishLoading];
+        dataTask.ya_AVAssetResourceLoadingRequest = nil;
+    }
+    if(dataTask.ya_AVAssetResourceLoadingRequest.isCancelled) {
+        [dataTask cancel];
+    }
+}
+
+- (void)URLSession:(NSURLSession *)session task:(NSURLSessionDataTask *)dataTask
+didCompleteWithError:(nullable NSError *)error
+{
+    if(dataTask.ya_AVAssetResourceLoadingRequest.isCancelled) return;
+    if(error) {
+        [dataTask.ya_AVAssetResourceLoadingRequest finishLoadingWithError:error];
+    } else {
+        [dataTask.ya_AVAssetResourceLoadingRequest finishLoading];
+    }
+    dataTask.ya_AVAssetResourceLoadingRequest = nil;
+}
 
 @end

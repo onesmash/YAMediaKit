@@ -14,7 +14,7 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = 'A6624D402B0F4484FECCB1A6F124B6E4'
+               BlueprintIdentifier = 'B388B9B3577CB1BC86931A1A69932CAE'
                BlueprintName = 'Pods-YAMediaKitDemo'
                ReferencedContainer = 'container:Pods.xcodeproj'
                BuildableName = 'libPods-YAMediaKitDemo.a'>

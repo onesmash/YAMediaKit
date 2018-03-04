@@ -7,7 +7,8 @@
 //
 
 #import <AVFoundation/AVFoundation.h>
-#import "YAVideoDownloader.h"
+
+@class YAVideoDownloader;
 
 @interface AVPlayerItem (YA)
 

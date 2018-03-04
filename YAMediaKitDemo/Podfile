@@ -7,6 +7,6 @@ target 'YAMediaKitDemo' do
 
   # Pods for YAMediaKitDemo
 
-  pod 'YAKit'
+  pod 'YAMediaKit', :path => '../YAMediaKit.podspec'
 
 end
