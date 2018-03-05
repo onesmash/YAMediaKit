@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
 
   s.name         = "YAMediaKit"
-  s.version      = "0.0.2"
+  s.version      = "0.0.3"
   s.summary      = "YAMediaKit"
 
   s.description  = "YAMediaKit"
@@ -13,7 +13,7 @@ Pod::Spec.new do |s|
 
   s.author             = { "xuhui" => "good122000@qq.com" }
 
-  s.platform     = :ios, "9.0"
+  s.platform     = :ios, "8.0"
 
   s.source       = { :git => "https://github.com/onesmash/YAMediaKit.git", :tag => "#{s.version}" }
 
