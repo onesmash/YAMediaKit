@@ -315,7 +315,7 @@ static char kVideoDirKey;
 {
     NSInteger requestOffset = loadingRequest.dataRequest.requestedOffset;
     NSInteger requestLength;
-    if(loadingRequest.dataRequest.requestsAllDataToEndOfResource) {
+    if(loadingRequest.dataRequest.requestedLength == NSIntegerMax || (@available(iOS 9, *) && loadingRequest.dataRequest.requestsAllDataToEndOfResource)) {
         requestLength = self.videoMeta.size ? self.videoMeta.size - requestOffset : NSIntegerMax;
     } else {
         requestLength = loadingRequest.dataRequest.requestedLength;
@@ -375,7 +375,7 @@ didReceiveResponse:(NSURLResponse *)response
     [self updatePendingRequest:dataTask responseData:data];
     BOOL isFinished = NO;
     AVAssetResourceLoadingDataRequest *dataRequest = dataTask.ya_AVAssetResourceLoadingRequest.dataRequest;
-    if(!dataRequest.requestsAllDataToEndOfResource) {
+    if(!(dataRequest.requestedLength == NSIntegerMax || (@available(iOS 9, *) && dataRequest.requestsAllDataToEndOfResource))) {
         isFinished = dataRequest.currentOffset >= dataRequest.requestedOffset + dataRequest.requestedLength;
     } else {
         isFinished = dataRequest.currentOffset >= self.videoMeta.size;
