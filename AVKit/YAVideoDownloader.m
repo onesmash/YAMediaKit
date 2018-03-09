@@ -194,7 +194,7 @@ static char kVideoDirKey;
     YAVideoMeta *videoMeta = self.videoMeta;
     BOOL isDownloadFinished = [self.availableDataRange containsIndexesInRange:NSMakeRange(0, self.videoMeta.size)];
     [self.class.operationQueue addOperationWithBlock:^() {
-        if(isDownloadFinished) {
+        if(isDownloadFinished && ![[NSFileManager defaultManager] fileExistsAtPath:cacheFilePath]) {
             [[NSFileManager defaultManager] copyItemAtPath:tmpCacheFilePath toPath:cacheFilePath error:nil];
             [NSKeyedArchiver archiveRootObject:self.videoMeta toFile:self.cacheMetaFilePath];
         }
