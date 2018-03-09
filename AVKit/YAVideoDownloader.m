@@ -283,10 +283,6 @@ static char kVideoDirKey;
             self.videoMeta = [NSKeyedUnarchiver unarchiveObjectWithFile:self.cacheMetaFilePath];
             _mmapFile = [[YAMMapFile alloc] initWithFilePath:self.cacheFilePath openMode:YAMMapFileOpenModeRead];
             [self.availableDataRange addIndexesInRange:NSMakeRange(0, self.self.videoMeta.size)];
-        } else if ([[NSFileManager defaultManager] fileExistsAtPath:self.tmpFilePath] && [[NSFileManager defaultManager] fileExistsAtPath:self.tmpMetaFilePath]) {
-            YAVideoDownloadMeta *meta = [NSKeyedUnarchiver unarchiveObjectWithFile:self.tmpMetaFilePath];
-            _mmapFile = [[YAMMapFile alloc] initWithFilePath:self.tmpFilePath openMode:YAMMapFileOpenModeWriteAppend];
-            self.availableDataRange = [[NSMutableIndexSet alloc] initWithIndexSet:meta.availableDataRange];
         }
     }];
 }
