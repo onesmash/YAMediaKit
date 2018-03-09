@@ -187,11 +187,17 @@ static char kVideoDirKey;
 - (void)dealloc
 {
     [self.mmapFile flush:NO];
+    NSString *tmpCacheFilePath = [self tmpFilePath];
     NSString *cacheFilePath = [self cacheFilePath];
     NSString *tmpCacheMetaFilePath = [self tmpMetaFilePath];
     NSMutableIndexSet *availableDataRange = self.availableDataRange;
     YAVideoMeta *videoMeta = self.videoMeta;
+    BOOL isDownloadFinished = [self.availableDataRange containsIndexesInRange:NSMakeRange(0, self.videoMeta.size)];
     [self.class.operationQueue addOperationWithBlock:^() {
+        if(isDownloadFinished) {
+            [[NSFileManager defaultManager] copyItemAtPath:tmpCacheFilePath toPath:cacheFilePath error:nil];
+            [NSKeyedArchiver archiveRootObject:self.videoMeta toFile:self.cacheMetaFilePath];
+        }
         if(![[NSFileManager defaultManager] fileExistsAtPath:cacheFilePath]) {
             YAVideoDownloadMeta *meta = [[YAVideoDownloadMeta alloc] init];
             meta.availableDataRange = availableDataRange;
@@ -262,8 +268,6 @@ static char kVideoDirKey;
             [self stop];
             [self.class.operationQueue addOperationWithBlock:^() {
                 [self.mmapFile flush:NO];
-                [[NSFileManager defaultManager] copyItemAtPath:self.tmpFilePath toPath:self.cacheFilePath error:nil];
-                [NSKeyedArchiver archiveRootObject:self.videoMeta toFile:self.cacheMetaFilePath];
             }];
         }
     }
