@@ -188,7 +188,7 @@ static char kVideoDirKey;
 {
     [self.mmapFile flush:NO];
     NSString *cacheFilePath = [self cacheFilePath];
-    NSString *cacheMetaFilePath = [self cacheMetaFilePath];
+    NSString *tmpCacheMetaFilePath = [self tmpMetaFilePath];
     NSMutableIndexSet *availableDataRange = self.availableDataRange;
     YAVideoMeta *videoMeta = self.videoMeta;
     [self.class.operationQueue addOperationWithBlock:^() {
@@ -196,10 +196,15 @@ static char kVideoDirKey;
             YAVideoDownloadMeta *meta = [[YAVideoDownloadMeta alloc] init];
             meta.availableDataRange = availableDataRange;
             meta.videoMeta = videoMeta;
-            [NSKeyedArchiver archiveRootObject:meta toFile:cacheMetaFilePath];
+            [NSKeyedArchiver archiveRootObject:meta toFile:tmpCacheMetaFilePath];
         }
     }];
     
+}
+
+- (void)stop
+{
+    [self.urlSession invalidateAndCancel];
 }
 
 - (NSString *)tmpFilePath
@@ -254,6 +259,7 @@ static char kVideoDirKey;
         NSData *data = [NSData dataWithBytes:cacheData length:size];
         [loadingRequest.dataRequest respondWithData:data];
         if([self.availableDataRange containsIndexesInRange:NSMakeRange(0, self.videoMeta.size)]) {
+            [self stop];
             [self.class.operationQueue addOperationWithBlock:^() {
                 [self.mmapFile flush:NO];
                 [[NSFileManager defaultManager] copyItemAtPath:self.tmpFilePath toPath:self.cacheFilePath error:nil];

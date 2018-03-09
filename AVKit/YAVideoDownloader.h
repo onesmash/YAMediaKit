@@ -16,4 +16,6 @@
 @property (class, nonatomic, strong, readonly) NSOperationQueue *operationQueue;
 + (instancetype)downloaderWithURL:(NSURL *)URL;
 
+- (void)stop;
+
 @end

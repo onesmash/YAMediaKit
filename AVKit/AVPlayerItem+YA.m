@@ -8,11 +8,20 @@
 
 #import "AVPlayerItem+YA.h"
 #import "YAVideoDownloader.h"
+#import <YAKit/NSObject+YASwizzle.h>
 #import <objc/runtime.h>
 
 static char kDownloaderKey;
 
 @implementation AVPlayerItem (YA)
+
++ (void)load
+{
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        [self ya_swizzleMethod:NSSelectorFromString(@"dealloc") withMethod:@selector(AVPlayerItem_dealloc)];
+    });
+}
 
 + (instancetype)ya_playerItemWithURL:(NSURL *)URL
 {
@@ -28,6 +37,12 @@ static char kDownloaderKey;
     } else {
         return [AVPlayerItem playerItemWithURL:URL];
     }
+}
+
+- (void)AVPlayerItem_dealloc
+{
+    [self.ya_downloader stop];
+    [self AVPlayerItem_dealloc];
 }
 
 - (YAVideoDownloader *)ya_downloader
