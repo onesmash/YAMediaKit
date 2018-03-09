@@ -189,6 +189,7 @@ static char kVideoDirKey;
     [self.mmapFile flush:NO];
     NSString *tmpCacheFilePath = [self tmpFilePath];
     NSString *cacheFilePath = [self cacheFilePath];
+    NSString *metaFilePath = self.cacheMetaFilePath;
     NSString *tmpCacheMetaFilePath = [self tmpMetaFilePath];
     NSMutableIndexSet *availableDataRange = self.availableDataRange;
     YAVideoMeta *videoMeta = self.videoMeta;
@@ -196,7 +197,7 @@ static char kVideoDirKey;
     [self.class.operationQueue addOperationWithBlock:^() {
         if(isDownloadFinished && ![[NSFileManager defaultManager] fileExistsAtPath:cacheFilePath]) {
             [[NSFileManager defaultManager] copyItemAtPath:tmpCacheFilePath toPath:cacheFilePath error:nil];
-            [NSKeyedArchiver archiveRootObject:self.videoMeta toFile:self.cacheMetaFilePath];
+            [NSKeyedArchiver archiveRootObject:videoMeta toFile:metaFilePath];
         }
         if(![[NSFileManager defaultManager] fileExistsAtPath:cacheFilePath]) {
             YAVideoDownloadMeta *meta = [[YAVideoDownloadMeta alloc] init];
