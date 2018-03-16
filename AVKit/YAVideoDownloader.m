@@ -104,6 +104,7 @@ static char kVideoDirKey;
 @property (nonatomic, strong) YAMMapFile *mmapFile;
 @property (nonatomic, strong) NSMutableIndexSet *availableDataRange;
 @property (nonatomic, copy) NSURL *URL;
+@property (atomic, assign) BOOL stopped;
 @end
 
 @implementation YAVideoDownloader
@@ -154,6 +155,18 @@ static char kVideoDirKey;
     return [[self cacheFilePath:URL] stringByAppendingPathExtension:@"meta"];
 }
 
++ (NSArray<NSString *> *)cleanAbleDir
+{
+    return @[[NSTemporaryDirectory() stringByAppendingPathComponent:kPathSuffix], self.videoDir.length ? self.videoDir : [[NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) firstObject] stringByAppendingPathComponent:kPathSuffix]];
+}
+
++ (void)cleanCache
+{
+    for (NSString *path in [self cleanAbleDir]) {
+        [[NSFileManager defaultManager] removeItemAtPath:path error:nil];
+    }
+}
+
 + (instancetype)downloaderWithURL:(NSURL *)URL
 {
     return [[YAVideoDownloader alloc] initWithURL:URL];
@@ -179,6 +192,7 @@ static char kVideoDirKey;
         _availableDataRange = [NSMutableIndexSet indexSet];
         _videoMeta = [[YAVideoMeta alloc] init];
         _urlSession = [NSURLSession sessionWithConfiguration:[NSURLSessionConfiguration defaultSessionConfiguration] delegate:self delegateQueue:[self.class operationQueue]];
+        _stopped = NO;
         [self prepareVideoCache];
     }
     return self;
@@ -186,31 +200,32 @@ static char kVideoDirKey;
 
 - (void)dealloc
 {
-    [self.mmapFile flush:NO];
+    [self.mmapFile close];
     NSString *tmpCacheFilePath = [self tmpFilePath];
     NSString *cacheFilePath = [self cacheFilePath];
     NSString *metaFilePath = self.cacheMetaFilePath;
     NSString *tmpCacheMetaFilePath = [self tmpMetaFilePath];
     NSMutableIndexSet *availableDataRange = self.availableDataRange;
     YAVideoMeta *videoMeta = self.videoMeta;
-    BOOL isDownloadFinished = [self.availableDataRange containsIndexesInRange:NSMakeRange(0, self.videoMeta.size)];
-    [self.class.operationQueue addOperationWithBlock:^() {
-        if(isDownloadFinished && ![[NSFileManager defaultManager] fileExistsAtPath:cacheFilePath]) {
+    BOOL isDownloadFinished = self.videoMeta.size > 0 ? [self.availableDataRange containsIndexesInRange:NSMakeRange(0, self.videoMeta.size)] : NO;
+    dispatch_async(dispatch_get_global_queue(0, 0), ^() {
+        if(isDownloadFinished && (![[NSFileManager defaultManager] fileExistsAtPath:metaFilePath] || ![[NSFileManager defaultManager] fileExistsAtPath:cacheFilePath])) {
             [[NSFileManager defaultManager] copyItemAtPath:tmpCacheFilePath toPath:cacheFilePath error:nil];
             [NSKeyedArchiver archiveRootObject:videoMeta toFile:metaFilePath];
         }
-        if(![[NSFileManager defaultManager] fileExistsAtPath:cacheFilePath]) {
+        if(![[NSFileManager defaultManager] fileExistsAtPath:metaFilePath] || ![[NSFileManager defaultManager] fileExistsAtPath:cacheFilePath]) {
             YAVideoDownloadMeta *meta = [[YAVideoDownloadMeta alloc] init];
             meta.availableDataRange = availableDataRange;
             meta.videoMeta = videoMeta;
             [NSKeyedArchiver archiveRootObject:meta toFile:tmpCacheMetaFilePath];
         }
-    }];
+    });
     
 }
 
 - (void)stop
 {
+    self.stopped = YES;
     [self.urlSession invalidateAndCancel];
 }
 
@@ -267,9 +282,7 @@ static char kVideoDirKey;
         [loadingRequest.dataRequest respondWithData:data];
         if([self.availableDataRange containsIndexesInRange:NSMakeRange(0, self.videoMeta.size)]) {
             [self stop];
-            [self.class.operationQueue addOperationWithBlock:^() {
-                [self.mmapFile flush:NO];
-            }];
+            [self.mmapFile flush:YES];
         }
     }
 }
@@ -281,8 +294,15 @@ static char kVideoDirKey;
     [self.class.operationQueue addOperationWithBlock:^() {
         if([[NSFileManager defaultManager] fileExistsAtPath:self.cacheFilePath] && [[NSFileManager defaultManager] fileExistsAtPath:self.cacheMetaFilePath]) {
             self.videoMeta = [NSKeyedUnarchiver unarchiveObjectWithFile:self.cacheMetaFilePath];
-            _mmapFile = [[YAMMapFile alloc] initWithFilePath:self.cacheFilePath openMode:YAMMapFileOpenModeRead];
-            [self.availableDataRange addIndexesInRange:NSMakeRange(0, self.self.videoMeta.size)];
+            _mmapFile = [[YAMMapFile alloc] initWithFilePath:self.cacheFilePath size:self.videoMeta.size openMode:YAMMapFileOpenModeRead];
+            [self.availableDataRange addIndexesInRange:NSMakeRange(0, self.videoMeta.size)];
+        } else if([[NSFileManager defaultManager] fileExistsAtPath:self.tmpFilePath] && [[NSFileManager defaultManager] fileExistsAtPath:self.tmpMetaFilePath]) {
+            YAVideoDownloadMeta *meta = [NSKeyedUnarchiver unarchiveObjectWithFile:self.tmpMetaFilePath];
+            if(meta.videoMeta.size > 0) {
+                self.videoMeta = meta.videoMeta;
+                self.availableDataRange = meta.availableDataRange;
+                _mmapFile = [[YAMMapFile alloc] initWithFilePath:self.tmpFilePath size:self.videoMeta.size openMode:YAMMapFileOpenModeWriteAppend];
+            }
         }
     }];
 }
@@ -290,10 +310,10 @@ static char kVideoDirKey;
 - (void)createTmpFile:(size_t)size
 {
     if(!_mmapFile) {
-        _mmapFile = [[YAMMapFile alloc] initWithFilePath:self.tmpFilePath size:size openMode:YAMMapFileOpenModeWriteTruncate];
+        _mmapFile = [[YAMMapFile alloc] initWithFilePath:self.tmpFilePath size:size openMode:YAMMapFileOpenModeWrite];
         self.videoMeta.size = size;
     } else if(size != _mmapFile.size) {
-        _mmapFile = [[YAMMapFile alloc] initWithFilePath:self.tmpFilePath size:size openMode:YAMMapFileOpenModeWriteAppend];
+        _mmapFile = [[YAMMapFile alloc] initWithFilePath:self.tmpFilePath size:size openMode:YAMMapFileOpenModeWrite];
         self.videoMeta.size = size;
     }
 }
@@ -339,6 +359,7 @@ static char kVideoDirKey;
             [self updateLoadingRequest:loadingRequest withVideoMeta:self.videoMeta];
             [self responseLoadingRequest:loadingRequest withCacheData:requestRange];
         } else {
+            if(self.stopped) return;
             NSMutableIndexSet *requestIndexSet = [NSMutableIndexSet indexSetWithIndexesInRange:requestRange];
             [requestIndexSet removeIndexes:self.availableDataRange];
             [requestIndexSet enumerateRangesUsingBlock:^(NSRange range, BOOL *stop) {

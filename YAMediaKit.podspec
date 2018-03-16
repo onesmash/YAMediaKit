@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
 
   s.name         = "YAMediaKit"
-  s.version      = "0.0.9"
+  s.version      = "0.1.0"
   s.summary      = "YAMediaKit"
 
   s.description  = "YAMediaKit"
@@ -19,7 +19,7 @@ Pod::Spec.new do |s|
 
   s.source_files  = ["YAMediaKit.h", "AVKit/**/*.{h,m,mm}"]
 
-  s.public_header_files = ["YAMediaKit.h", "AVKit/AVPlayerItem+YA.h"]
+  s.public_header_files = ["YAMediaKit.h", "AVKit/AVPlayerItem+YA.h", "AVKit/YAVideoDownloader.h"]
 
   s.requires_arc = true
 

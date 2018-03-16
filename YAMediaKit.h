@@ -9,5 +9,6 @@
 #define YAMediaKit_h
 
 #import "AVPlayerItem+YA.h"
+#import "YAVideoDownloader.h"
 
 #endif /* YAMediaKit_h */

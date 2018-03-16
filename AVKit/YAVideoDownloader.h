@@ -14,6 +14,8 @@
 @interface YAVideoDownloader : NSObject <AVAssetResourceLoaderDelegate>
 @property (class, nonatomic, copy) NSString *videoDir;
 @property (class, nonatomic, strong, readonly) NSOperationQueue *operationQueue;
++ (NSArray<NSString *> *)cleanAbleDir;
++ (void)cleanCache;
 + (instancetype)downloaderWithURL:(NSURL *)URL;
 
 - (void)stop;
